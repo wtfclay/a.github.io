@@ -13,12 +13,10 @@
 ```
 ### 3. 配置
 ```markdown
-  vi /etc/my.cnf
-  default-authentication-plugin=mysql_native_password
   grep 'temporary password' /var/log/mysqld.log
   mysql -u root -p
-  ALTER USER 'root'@'localhost' IDENTIFIED BY 'Root&123456';
-  ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Root&123456';
+  ALTER USER 'root'@'localhost' IDENTIFIED BY 'Root@123456';
+  ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Root@123456';
   FLUSH PRIVILEGES;
   use mysql;
   update user set host = '%' where user = 'root';
@@ -26,4 +24,5 @@
 ### 4. 重启
 ```markdown
   systemctl restart mysqld
+  systemctl disable firewalld
 ```
