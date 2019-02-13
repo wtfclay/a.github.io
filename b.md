@@ -9,6 +9,7 @@
   yum install -y http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
   yum --enablerepo=remi install redis
   systemctl start redis
+  systemctl enable redis
 ```
 ### 3. 配置
 ```markdown
